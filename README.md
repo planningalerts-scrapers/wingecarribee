@@ -1,6 +1,6 @@
-# Camden Council Scraper
+# Wingercarribee Shire Council Scraper
 
-Camden Council involves the followings
+Wingercarribee Shire Council involves the followings
 * Server - .NET - ApplicationMaster
 * Accept Terms - Yes
 * Cookie tracking - No, but I may just as well use it because it need UserAgent
