@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "17ca6b95943bc276565d417449d3f600",
+    "content-hash": "d0d16066ce3bd67c743f159bd231b1f0",
     "packages": [
         {
             "name": "byjg/pgbrowser",
@@ -76,6 +76,20 @@
             "description": "phpQuery is a server-side, chainable, CSS3 selector driven Document Object Model (DOM) API based on jQuery JavaScript Library",
             "homepage": "http://code.google.com/p/phpquery/",
             "time": "2013-03-21T12:39:33+00:00"
+        },
+        {
+            "name": "openaustralia/scraperwiki",
+            "version": "dev-morph_defaults",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openaustralia/scraperwiki-php.git",
+                "reference": "e996fe0253bb50330690f5d2bafb66f094dbacb8"
+            },
+            "require": {
+                "ext-pdo_sqlite": "*"
+            },
+            "type": "library",
+            "time": "2014-06-23 01:47:45"
         },
         {
             "name": "pguardiario/phpuri",
@@ -153,9 +167,16 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "openaustralia/scraperwiki": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-sqlite3": "*",
+        "ext-pdo_sqlite": "*",
+        "ext-gd": "*",
+        "ext-mbstring": "*"
+    },
     "platform-dev": []
 }
