@@ -1,7 +1,7 @@
 <?php
 ### Wingecarribee Shire Council scraper - ApplicationMaster
 require_once 'vendor/autoload.php';
-require_once 'scraperwiki.php';
+require 'scraperwiki.php';
 
 use PGuardiario\PGBrowser;
 use Sunra\PhpSimple\HtmlDomParser;
