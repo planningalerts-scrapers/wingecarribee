@@ -1,0 +1,6 @@
+{
+	"require" : {
+		"byjg/pgbrowser" : "1.0.*",
+		"sunra/php-simple-html-dom-parser": "1.5.2"
+	}
+}
