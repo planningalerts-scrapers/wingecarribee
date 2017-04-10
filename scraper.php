@@ -1,7 +1,7 @@
 <?php
 ### Wingecarribee Shire Council scraper - ApplicationMaster
 require_once 'vendor/autoload.php';
-require 'scraperwiki.php';
+require_once 'vendor/openaustralia/scraperwiki/scraperwiki.php';
 
 use PGuardiario\PGBrowser;
 use Sunra\PhpSimple\HtmlDomParser;
@@ -21,14 +21,13 @@ switch(getenv('MORPH_PERIOD')) {
         break;
 }
 
-$url_base = "http://datracking.wsc.nsw.gov.au/Modules/applicationmaster/";
-$term_url = "http://datracking.wsc.nsw.gov.au/Modules/applicationmaster/Default.aspx";
-$da_page  = $url_base . "default.aspx?page=found&1=" .$period. "&4a=WLUA,82AReview,CDC,DA,Mods&6=F";
+$url_base = "http://datracking.wsc.nsw.gov.au/Modules/applicationmaster/default.aspx";
+$da_page  = $url_base . "?page=found&1=" .$period. "&4a=WLUA,82AReview,CDC,DA,Mods&6=F";
 $comment_base = "mailto:wscmail@wsc.nsw.gov.au?subject=Development Application Enquiry: ";
 
 # Agreed Terms
 $browser = new PGBrowser();
-$page = $browser->get($term_url);
+$page = $browser->get($url_base);
 $form = $page->form();
 $form->set('ctl00$cphContent$ctl01$Button2', 'Agree');
 $page = $form->submit();
@@ -77,7 +76,7 @@ for ($i = 1; $i <= $NumPages; $i++) {
         $info_url = $url_base . trim($record->find('a',0)->href);
 
         # Put all information in an array
-        $application = array (
+        $application = [
             'council_reference' => $council_reference,
             'address'           => $addr,
             'description'       => $desc,
@@ -85,7 +84,7 @@ for ($i = 1; $i <= $NumPages; $i++) {
             'comment_url'       => $comment_base . $council_reference,
             'date_scraped'      => date('Y-m-d'),
             'date_received'     => $date_received
-        );
+        ];
 
         # Check if record exist, if not, INSERT, else do nothing
         $existingRecords = scraperwiki::select("* from data where `council_reference`='" . $application['council_reference'] . "'");
