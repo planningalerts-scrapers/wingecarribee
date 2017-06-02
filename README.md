@@ -1,6 +1,5 @@
 # Wingercarribee Shire Council Scraper
 
-Wingercarribee Shire Council involves the followings
 * Server - .NET - ApplicationMaster
 * Accept Terms - Yes
 * Cookie tracking - Yes and managed by PGBrowser
@@ -11,6 +10,7 @@ Wingercarribee Shire Council involves the followings
 * Clearly defined data within a row - Yes
 
 Setup MORPH_PERIOD for data recovery, available options are
+
 * thisweek (default)
 * thismonth
 * lastmonth
