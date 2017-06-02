@@ -90,8 +90,8 @@ for ($i = 1; $i <= $NumPages; $i++) {
         $existingRecords = scraperwiki::select("* from data where `council_reference`='" . $application['council_reference'] . "'");
         if (count($existingRecords) == 0) {
             print ("Saving record " . $application['council_reference'] . " - " .$application['address']. "\n");
-            print_r ($application);
-//             scraperwiki::save(array('council_reference'), $application);
+//             print_r ($application);
+            scraperwiki::save(array('council_reference'), $application);
         } else {
             print ("Skipping already saved record " . $application['council_reference'] . "\n");
         }
