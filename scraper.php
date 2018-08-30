@@ -23,7 +23,7 @@ switch(getenv('MORPH_PERIOD')) {
 
 $url_base = "https://datracker.wsc.nsw.gov.au/Modules/applicationmaster/";
 $da_page  = $url_base . "default.aspx?page=found&1=" .$period. "&4a=WLUA,82AReview,CDC,DA,Mods&6=F";
-$comment_base = "mailto:wscmail@wsc.nsw.gov.au?subject=Development Application Enquiry: ";
+$comment_base = "mailto:mail@wsc.nsw.gov.au?subject=Development Application Enquiry: ";
 
 # Agreed Terms
 $browser = new PGBrowser();
