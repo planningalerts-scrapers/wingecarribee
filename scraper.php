@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 require_once 'vendor/openaustralia/scraperwiki/scraperwiki.php';
 
 use PGuardiario\PGBrowser;
-use Sunra\PhpSimple\HtmlDomParser;
+use Torann\DomParser\HtmlDom;
 
 date_default_timezone_set('Australia/Sydney');
 
@@ -34,7 +34,7 @@ $page = $form->submit();
 
 // Get list of development applications
 $page = $browser->get($da_page);
-$dom = HtmlDomParser::str_get_html($page->html);
+$dom = HtmlDom::fromString($page->html);
 
 # By default, assume it is single page
 $dataset  = $dom->find("tr[class=rgRow], tr[class=rgAltRow]");
@@ -49,7 +49,7 @@ for ($i = 1; $i <= $NumPages; $i++) {
         $doPostBack = $dom->find('div[class=rgWrap rgNumPart] a')[$i-1]->href;
         $form = $page->form();
         $page = $form->doPostBack($doPostBack);
-        $dom = HtmlDomParser::str_get_html($page->html);
+        $dom = HtmlDom::fromString($page->html);
         $dataset  = $dom->find("tr[class=rgRow], tr[class=rgAltRow]");
     }
 
