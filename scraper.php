@@ -77,13 +77,12 @@ for ($i = 1; $i <= $NumPages; $i++) {
 
         # Put all information in an array
         $application = [
-            'council_reference' => $council_reference,
-            'address'           => $addr,
-            'description'       => $desc,
             'info_url'          => $info_url,
-            'comment_url'       => $comment_base . $council_reference,
-            'date_scraped'      => date('Y-m-d'),
-            'date_received'     => $date_received
+            'council_reference' => $council_reference,
+            'date_received'     => $date_received,
+            'description'       => $desc,
+            'address'           => $addr,
+            'date_scraped'      => date('Y-m-d')
         ];
 
         print ("Saving record " . $application['council_reference'] . " - " .$application['address']. "\n");
